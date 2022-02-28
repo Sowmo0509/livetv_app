@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:livetv_demo/tv_channels.dart';
+import 'package:device_apps/device_apps.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:android_intent/android_intent.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -7,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String imgUrl = 'https://wallpaperaccess.com/full/175932.jpg';
+  String imgUrl = 'https://cdn.wallpapersafari.com/43/95/7MrGBn.jpg';
   FocusNode focusNode = FocusNode();
 
   @override
@@ -35,7 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => TvChannels()));
                             },
                             child: Icon(Icons.tv, size: 32)),
-                        TextButton(onPressed: () {}, child: Icon(Icons.smart_display, size: 32)),
+                        TextButton(
+                            onPressed: () {
+                              _openYoutube();
+                            },
+                            child: Icon(Icons.smart_display, size: 32)),
                         TextButton(onPressed: () {}, child: Icon(Icons.cast, size: 32)),
                       ],
                     ),
@@ -47,5 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  void _openYoutube() {
+    DeviceApps.openApp('com.google.android.youtube');
   }
 }
