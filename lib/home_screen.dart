@@ -1,8 +1,7 @@
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:livetv_demo/tv_channels.dart';
-import 'package:device_apps/device_apps.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:android_intent/android_intent.dart';
+// import 'package:external_app_launcher/external_app_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           child: Stack(
             children: [
-              Image.network(imgUrl),
+              Image.network(imgUrl, fit: BoxFit.cover, width: MediaQuery.of(context).size.width),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -39,8 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             child: Icon(Icons.tv, size: 32)),
                         TextButton(
-                            onPressed: () {
-                              _openYoutube();
+                            onPressed: () async {
+                              await LaunchApp.openApp(
+                                androidPackageName: 'com.google.android.youtube.tv',
+                                // iosUrlScheme: 'pulsesecure://',
+                                // appStoreLink: 'itms-apps://itunes.apple.com/us/app/pulse-secure/id945832041',
+                                openStore: false,
+                              );
                             },
                             child: Icon(Icons.smart_display, size: 32)),
                         TextButton(onPressed: () {}, child: Icon(Icons.cast, size: 32)),
@@ -54,9 +58,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  void _openYoutube() {
-    DeviceApps.openApp('com.google.android.youtube');
   }
 }
