@@ -38,6 +38,8 @@ dependencies:
   chewie: ^1.2.1
   video_player: ^2.2.19
   wakelock: ^0.6.1+1
+  m3u_nullsafe: ^1.0.4
+  http: ^0.13.4
 
 
 dev_dependencies:
@@ -63,9 +65,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - files/bdtv.m3u8
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

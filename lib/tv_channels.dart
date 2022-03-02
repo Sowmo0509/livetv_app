@@ -1,5 +1,10 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:livetv_demo/channel_list_button.dart';
 import 'package:livetv_demo/tv_player.dart';
+import 'package:m3u_nullsafe/m3u_nullsafe.dart';
+import 'package:http/http.dart' as http;
+import 'package:video_player/video_player.dart';
 
 class TvChannels extends StatefulWidget {
   @override
@@ -7,65 +12,80 @@ class TvChannels extends StatefulWidget {
 }
 
 class _TvChannelsState extends State<TvChannels> {
+  Uri M3Url = Uri.parse('https://raw.githubusercontent.com/Sowmo0509/livetv_app/master/Bangladesh_1.iptvcat.com.m3u8');
+  final videoPlayerController = VideoPlayerController.network('https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
+  late ChewieController chewieController = ChewieController(
+    videoPlayerController: videoPlayerController,
+    autoPlay: true,
+    looping: true,
+  );
+  List title = [];
+  List link = [];
+  String mainVideoUrlTv = '';
+  String videoUrl = '';
+
+  Future<void> getList() async {
+    final response = await http.get(M3Url);
+    final m3u = await M3uParser.parse(response.body);
+
+    for (final entry in m3u) {
+      // print('Title: ${entry.title} Link: ${entry.link} Logo: ${entry.attributes['tvg-logo']}');
+      setState(() {
+        title.add(entry.title);
+        link.add(entry.link);
+      });
+    }
+  }
+
+  initPlayer() async {
+    await videoPlayerController.initialize();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getList();
+    initPlayer();
+    print(title);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.white,
       body: Container(
         child: Row(
           children: [
-            Container(
-              margin: EdgeInsets.only(left: 0.0, top: 48.0),
-              width: MediaQuery.of(context).size.width / 3,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(border: Border.all()),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 48.0),
-                margin: EdgeInsets.symmetric(horizontal: 32.0, vertical: 48.0),
-                child: ListView(
-                  children: [
-                    ListTile(
-                      title: Text('Channel 1'),
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(border: Border.all()),
+                  child: Container(
+                    child: ListView.builder(
+                      itemCount: link.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          child: MaterialButton(
+                              onPressed: () {
+                                setState(() {
+                                  videoUrl = link[index];
+                                });
+                              },
+                              child: ListTile(title: Text(title[index].toString()))),
+                        );
+                      },
                     ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                    ListTile(
-                      title: Text('Channel 1'),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                // color: Colors.blue,
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.height / 2,
-                child: TvPlayer(),
-              ),
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: Chewie(
+                    controller: chewieController.copyWith(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
