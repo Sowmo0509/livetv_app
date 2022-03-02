@@ -42,8 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             onPressed: () async {
                               await LaunchApp.openApp(
                                 androidPackageName: 'com.google.android.youtube.tv',
-                                // iosUrlScheme: 'pulsesecure://',
-                                // appStoreLink: 'itms-apps://itunes.apple.com/us/app/pulse-secure/id945832041',
                                 openStore: false,
                               );
                             },
