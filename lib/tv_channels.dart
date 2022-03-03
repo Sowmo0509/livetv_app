@@ -12,7 +12,8 @@ class TvChannels extends StatefulWidget {
 }
 
 class _TvChannelsState extends State<TvChannels> {
-  Uri M3Url = Uri.parse('https://raw.githubusercontent.com/Sowmo0509/livetv_app/master/Bangladesh_1.iptvcat.com.m3u8');
+  Uri M3Url = Uri.parse('http://live.fiptvprime.com/ch.m3u');
+  // Uri TempM3Url = Uri.parse('https://raw.githubusercontent.com/Sowmo0509/livetv_app/master/Bangladesh_1.iptvcat.com.m3u8');
   final videoPlayerController = VideoPlayerController.network('https://news18bangla-lh.akamaihd.net/i/n18bangla_1@2289/index_4_av-p.m3u8?checkedby:iptvcat.com');
   late ChewieController chewieController = ChewieController(
     videoPlayerController: videoPlayerController,
@@ -71,75 +72,78 @@ class _TvChannelsState extends State<TvChannels> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 48, left: 20),
-                          child: Text('All Channels', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w500)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 48, left: 40),
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Icon(
-                              Icons.arrow_back_ios_outlined,
-                              size: 24,
-                              color: Colors.white,
+              SingleChildScrollView(
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 48, left: 20),
+                            child: Text('All Channels', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w500)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 48, left: 40),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Icon(
+                                Icons.arrow_back_ios_outlined,
+                                size: 24,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 8.0),
-                      width: MediaQuery.of(context).size.width / 3,
-                      // height: MediaQuery.of(context).size.height,
-                      // decoration: BoxDecoration(border: Border.all()),
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: link.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return MaterialButton(
-                            onPressed: () {
-                              print(link[index]);
-                              setState(() {
-                                dispose();
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 8.0),
+                        width: MediaQuery.of(context).size.width / 3,
+                        // height: MediaQuery.of(context).size.height,
+                        // decoration: BoxDecoration(border: Border.all()),
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: link.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return MaterialButton(
+                              onPressed: () {
+                                print(link[index]);
+                                setState(() {
+                                  // dispose();
 
-                                chewieController = ChewieController(
-                                  videoPlayerController: VideoPlayerController.network(link[index]),
-                                  autoPlay: true,
-                                  showControls: false,
-                                  aspectRatio: 16 / 9,
-                                  fullScreenByDefault: true,
-                                  autoInitialize: true,
-                                );
-                              });
-                            },
-                            child: Container(
-                              margin: EdgeInsets.symmetric(vertical: 2.0),
-                              decoration: BoxDecoration(
-                                color: Color(0xFF2a2652),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: ListTile(
-                                trailing: Icon(Icons.live_tv, color: Colors.red),
-                                title: Text(
-                                  '${index + 1}. ${title[index].toString()}',
-                                  style: TextStyle(color: Colors.white, fontSize: 14.0),
+                                  chewieController.pause();
+                                  chewieController = ChewieController(
+                                    videoPlayerController: VideoPlayerController.network(link[index]),
+                                    autoPlay: true,
+                                    showControls: false,
+                                    aspectRatio: 16 / 9,
+                                    fullScreenByDefault: true,
+                                    autoInitialize: true,
+                                  );
+                                });
+                              },
+                              child: Container(
+                                margin: EdgeInsets.symmetric(vertical: 2.0),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF2a2652),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: ListTile(
+                                  trailing: Icon(Icons.live_tv, color: Colors.red),
+                                  title: Text(
+                                    '${index + 1}. ${title[index].toString()}',
+                                    style: TextStyle(color: Colors.white, fontSize: 14.0),
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Expanded(
