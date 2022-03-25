@@ -1,0 +1,38 @@
+#EXTM3U
+#PLAYLIST:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",ALSahraa
+http://sara12.webhop.net:8000/live/emad_854959/k3aRL3Eb/13678.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Khalij
+https://mn-nl.mncdn.com/khalij/khalij/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Khalij
+http://mn-nl.mncdn.com/khalij/khalij/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Quran Al Kareem (Mecca)
+http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_quran/hls1/saudi_quran.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Quran Al Kareem (Mecca), Quran
+http://m.live.net.sa:1935/live/quran/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Quran Al Kareem (Mecca)
+https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_quran/hls1/saudi_quran.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Sunnah (Medina)
+https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_sunnah/hls1/saudi_sunnah.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Al Sunnah (Medina)
+http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_sunnah/hls1/saudi_sunnah.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Iqraa
+https://iqraac.cdn.mangomolo.com/iqraa/smil:iqraar1.stream.smil/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Iqraa Europe Africa
+https://iqraac.cdn.mangomolo.com/iqraa/smil:iqraar2.stream.smil/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Jasco Events TV
+http://82.212.74.100:8000/live/hls/8131.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",MBC FM
+https://mbcfm-riyadh-prod-dub.shahid.net/out/v1/69c8a03f507e422f99cf5c07291c9e3a/index.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Makkah TV
+http://makkahtv.srfms.com:1935/makkahtv/livestream/playlist.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",SA | Saudi TV 1, Saudi TV 1
+http://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_tv/hls1/saudi_tv.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",SAUDI 24
+http://sara12.webhop.net:8000/live/emad_854959/k3aRL3Eb/13685.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Saudi 1
+http://sara12.webhop.net:8000/live/emad_854959/k3aRL3Eb/13687.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Saudi Ch For Quran
+http://sara12.webhop.net:8000/live/emad_854959/k3aRL3Eb/13666.m3u8?checkedby:dailyfreeiptvlist.com
+#EXTINF:0 tvg-country="undefined" tvg-logo="https://dailyfreeiptvlist.com/sa" group-title="undefined",Saudi TV 1
+https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/saudi_tv/hls1/saudi_tv.m3u8?checkedby:dailyfreeiptvlist.com
